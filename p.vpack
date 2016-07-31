@@ -1,0 +1,14 @@
+<vpack>
+	<meta>
+		<name>Sheeeets</name>
+		<source>https://github.com/microdee/Sheeeets.git</source>
+		<author>microdee</author>
+	</meta>
+	<install>
+		CopyDir(
+			Pack.TempDir,
+			VVVV.Dir + "\\packs\\" + Pack.Name,
+			ignore: new string[] {"src", ".git*"}
+		);
+	</install>
+</vpack>
