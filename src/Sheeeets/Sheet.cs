@@ -92,10 +92,15 @@ namespace Sheeeets
                 {
                     cc = gd.StartColumn;
                     if (!cc.HasValue) cc = 0;
-                    foreach (var cd in rd.Values)
+                    if (rd.Values != null)
                     {
-                        _cellCache.Add(RowCol(rr.Value, cc.Value), cd);
-                        cc++;
+                        foreach (var cd in rd.Values)
+                        {
+                            var rowcol = RowCol(rr.Value, cc.Value);
+                            cc++;
+                            if (_cellCache.ContainsKey(rowcol)) continue;
+                            _cellCache.Add(rowcol, cd);
+                        }
                     }
                     rr++;
                 }
